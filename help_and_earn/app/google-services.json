@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "347420604557",
+    "project_id": "helpandearn-c6485",
+    "storage_bucket": "helpandearn-c6485.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:347420604557:android:ccf2d317c67e5a7401cac4",
+        "android_client_info": {
+          "package_name": "com.d1v0r.help_and_earn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "347420604557-jtfgljcjdh8ic6ha9gonfq9csv841aqu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPrLCUeqX-jD_5PhYtTu1Cotuax5Y8yug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "347420604557-jtfgljcjdh8ic6ha9gonfq9csv841aqu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
