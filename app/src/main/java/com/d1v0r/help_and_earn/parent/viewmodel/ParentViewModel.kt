@@ -3,10 +3,8 @@ package com.d1v0r.help_and_earn.parent.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.d1v0r.help_and_earn.PreferencesManager
-import com.d1v0r.help_and_earn.firebase.FirebaseDateFormatter
 import com.d1v0r.help_and_earn.model.Child
 import com.d1v0r.help_and_earn.model.Parent
-import com.d1v0r.help_and_earn.model.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -47,16 +45,16 @@ class ParentViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val usernameExist = checkUsernameExist(child.username)
-                if (usernameExist){
+                if (usernameExist) {
                     _showMessage.value = "Child with same username already exists!"
-                }
-                else {
+                } else {
                     val documentRef = childCollectionRef.document()
                     child.id = documentRef.id
                     child.parentId = firebaseAuth.currentUser?.uid ?: ""
 
                     if (child.imagePath.isBlank()) {
-                        child.imagePath = "https://firebasestorage.googleapis.com/v0/b/helpandearn-c6485.appspot.com/o/images%2Favatar1.png?alt=media&token=526a63cc-0187-4b23-802e-30e37e0d9b32"
+                        child.imagePath =
+                            "https://firebasestorage.googleapis.com/v0/b/helpandearn-c6485.appspot.com/o/images%2Favatar1.png?alt=media&token=526a63cc-0187-4b23-802e-30e37e0d9b32"
                     }
 
                     documentRef.set(child).await()

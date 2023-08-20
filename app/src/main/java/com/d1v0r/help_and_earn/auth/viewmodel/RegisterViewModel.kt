@@ -19,7 +19,7 @@ import javax.inject.Inject
 class RegisterViewModel @Inject constructor(
     firestore: FirebaseFirestore,
     private val firebaseAuth: FirebaseAuth
-): ViewModel() {
+) : ViewModel() {
     private val usersCollectionRef = firestore.collection("users")
     private val childrenCollectionRef = firestore.collection("children")
 
@@ -29,10 +29,11 @@ class RegisterViewModel @Inject constructor(
     fun registerUser(parent: Parent) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val userId = firebaseAuth.createUserWithEmailAndPassword(parent.email, parent.password)
-                    .await()
-                    .user
-                    ?.uid
+                val userId =
+                    firebaseAuth.createUserWithEmailAndPassword(parent.email, parent.password)
+                        .await()
+                        .user
+                        ?.uid
                 if (userId != null) {
                     parent.id = userId
                     usersCollectionRef.document(userId).set(parent).await()
@@ -49,10 +50,11 @@ class RegisterViewModel @Inject constructor(
     fun registerChildUser(child: Child) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val userId = firebaseAuth.createUserWithEmailAndPassword(child.username, child.passcode)
-                    .await()
-                    .user
-                    ?.uid
+                val userId =
+                    firebaseAuth.createUserWithEmailAndPassword(child.username, child.passcode)
+                        .await()
+                        .user
+                        ?.uid
                 if (userId != null) {
                     child.id = userId
                     childrenCollectionRef.document(userId).set(child).await()

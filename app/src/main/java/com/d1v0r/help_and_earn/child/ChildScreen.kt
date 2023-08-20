@@ -211,36 +211,36 @@ fun ActiveTaskButtons(task: Task) {
         ) {
             Text(text = "Decline", color = Color.White)
         }
-    }
         Spacer(modifier = Modifier.width(8.dp))
         Button(
-                onClick = { showDoneDialog.value = true },
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF995825)),
-        modifier = Modifier.padding(top = 16.dp)
+            onClick = { showDoneDialog.value = true },
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xFF995825)),
+            modifier = Modifier.padding(top = 16.dp)
         ) {
-        Text(text = "Done", color = Color.White)
-    }
+            Text(text = "Done", color = Color.White)
+        }
 
-    if (showDoneDialog.value) {
-        ShowDoneAlertDialog(
-            onConfirm = {
-                viewModel.sendToReview(task)
-            },
-            onDismiss = {
-                showDoneDialog.value = false
-            }
-        )
-    }
+        if (showDoneDialog.value) {
+            ShowDoneAlertDialog(
+                onConfirm = {
+                    viewModel.sendToReview(task)
+                },
+                onDismiss = {
+                    showDoneDialog.value = false
+                }
+            )
+        }
 
-    if (showDeclineDialog.value) {
-        ShowDeclineAlertDialog(
-            onConfirm = {
-                viewModel.declineTask(task)
-            },
-            onDismiss = {
-                showDeclineDialog.value = false
-            }
-        )
+        if (showDeclineDialog.value) {
+            ShowDeclineAlertDialog(
+                onConfirm = {
+                    viewModel.declineTask(task)
+                },
+                onDismiss = {
+                    showDeclineDialog.value = false
+                }
+            )
+        }
     }
 }
 

@@ -22,7 +22,6 @@ import androidx.compose.material.TabRow
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -39,7 +38,6 @@ import androidx.navigation.NavHostController
 import com.d1v0r.help_and_earn.R
 import com.d1v0r.help_and_earn.model.Child
 import com.d1v0r.help_and_earn.model.Wishlist
-import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun ChildCartScreen(
@@ -96,10 +94,11 @@ fun ChildCartScreen(
                 targetState = selectedTabIndex,
                 label = ""
             ) { targetState ->
-                val items = when (targetState.value){
+                val items = when (targetState.value) {
                     0 -> {
                         wishlistItems.filter { !it.bought }
                     }
+
                     else -> {
                         wishlistItems.filter { it.bought }
                     }

@@ -129,6 +129,7 @@ class ChildViewModel @Inject constructor(
                 println("Failed to fetch child data: $exception")
             }
     }
+
     fun buyWishlistItem(wishlistItem: Wishlist) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -141,6 +142,7 @@ class ChildViewModel @Inject constructor(
             }
         }
     }
+
     private fun updateChildBalance(wishlistItem: Wishlist) {
         val childData = child.value
         if (childData.balance >= wishlistItem.price) {
@@ -170,7 +172,6 @@ class ChildViewModel @Inject constructor(
             println("Cannot update child balance. Either childData is null or balance is insufficient.")
         }
     }
-
 
 
     fun saveAvatar(selectedAvatarIndex: String) {

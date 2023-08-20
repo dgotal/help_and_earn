@@ -42,7 +42,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.d1v0r.help_and_earn.R
-import com.d1v0r.help_and_earn.auth.viewmodel.RegisterViewModel
 import com.d1v0r.help_and_earn.auth.viewmodel.ResetPasswordViewModel
 
 

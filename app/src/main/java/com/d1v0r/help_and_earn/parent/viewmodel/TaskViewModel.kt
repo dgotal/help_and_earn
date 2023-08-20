@@ -12,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.getAndUpdate
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import java.util.Calendar
@@ -64,7 +63,9 @@ class TaskViewModel @Inject constructor(
             currentDate.add(Calendar.DATE, -1)
             val tasksToDecline = _items.value.filter { task ->
                 val deadlineDate = FirebaseDateFormatter.stringToDate(task.deadline)
-                !task.declined && !task.childApproved && deadlineDate != null && deadlineDate.before(currentDate.time)
+                !task.declined && !task.childApproved && deadlineDate != null && deadlineDate.before(
+                    currentDate.time
+                )
             }
             tasksToDecline.forEach { task ->
                 performDeclineTask(task)

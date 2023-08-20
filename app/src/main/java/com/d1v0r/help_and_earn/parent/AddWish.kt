@@ -59,7 +59,13 @@ fun AddWish(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(text = "Add Wish for ${child.value?.fullName}", color = Color.White, fontSize = 22.sp) },
+                title = {
+                    Text(
+                        text = "Add Wish for ${child.value?.fullName}",
+                        color = Color.White,
+                        fontSize = 22.sp
+                    )
+                },
                 backgroundColor = Color(0xFF995825)
             )
         },

@@ -11,8 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import com.d1v0r.help_and_earn.auth.LoginScreen
 import com.d1v0r.help_and_earn.auth.RegisterScreen
 import com.d1v0r.help_and_earn.auth.ResetPasswordScreen
-import com.d1v0r.help_and_earn.auth.viewmodel.RegisterViewModel
-import com.d1v0r.help_and_earn.auth.viewmodel.ResetPasswordViewModel
 import com.d1v0r.help_and_earn.child.ChildCartScreen
 import com.d1v0r.help_and_earn.child.ChildProfileScreen
 import com.d1v0r.help_and_earn.child.ChildScreen
