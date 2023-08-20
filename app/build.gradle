@@ -1,0 +1,103 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.d1v0r.help_and_earn'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.d1v0r.help_and_earn"
+        minSdk 24
+        //noinspection OldTargetApi
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.3.2'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    //Firebase
+    implementation 'com.google.firebase:firebase-database:20.2.2'
+    implementation 'com.google.firebase:firebase-firestore:24.7.0'
+    implementation platform('com.google.firebase:firebase-bom:32.2.2')
+    implementation 'com.google.firebase:firebase-auth-ktx:22.1.1'
+    implementation("com.google.firebase:firebase-storage-ktx")
+
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.10')
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.activity:activity-compose:1.7.2'
+    implementation 'androidx.fragment:fragment-ktx:1.6.1'
+
+    implementation platform('androidx.compose:compose-bom:2023.08.00')
+
+    implementation('androidx.navigation:navigation-compose:2.7.0')
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.0'
+
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+
+    implementation 'androidx.compose.material3:material3'
+    implementation "androidx.compose.material:material-icons-extended"
+    implementation "androidx.compose.material:material"
+    implementation 'androidx.test:monitor:1.6.1'
+    androidTestImplementation 'junit:junit:4.12'
+
+    debugImplementation 'androidx.compose.ui:ui-tooling'
+    debugImplementation 'androidx.compose.ui:ui-test-manifest'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    //Philip
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:2.6.1"
+
+    //Hilt
+    implementation 'com.google.dagger:hilt-android:2.45'
+    kapt 'com.google.dagger:hilt-android-compiler:2.45'
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0"
+
+
+    //Accompanist
+    implementation "com.google.accompanist:accompanist-navigation-animation:0.28.0"
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.27.0"
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
+}
